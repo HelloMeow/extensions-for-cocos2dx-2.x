@@ -8,17 +8,16 @@ using cocos2d::CCSprite;
 
 float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint position)
 {
-    if (!sp) return 0.0f;
+    if (!sp) return .0f;
     
-    CCPoint touchLocationInSelf = sp->convertToNodeSpace(position);
     bool touchInSelf = CCRectMake(0, 0,
                                   sp->getContentSize().width,
-                                  sp->getContentSize().height).containsPoint(touchLocationInSelf);
-    if (!touchInSelf) return 0.0f;
+                                  sp->getContentSize().height).containsPoint(position);
+    if (!touchInSelf) return .0f;
     
     CCImage *img= CCSpriteToCCImage(sp);
     if (!img || !img->hasAlpha())
-        return 0.0f;
+        return .0f;
     
     unsigned char *data = new unsigned char[img->getDataLen()*4];
     data = img->getData();
@@ -26,8 +25,8 @@ float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint positio
     int i = (int)position.x;
     int j = (int)position.y;
     
-    if (i >= img->getWidth() || i < 0) return 0;
-    if (j >= img->getHeight() || j < 0) return 0;
+    if (i >= img->getWidth() || i < 0) return .0f;
+    if (j >= img->getHeight() || j < 0) return .0f;
     
     // [0][0] => Left-Top Pixel !
     // But cocos2d Location Y-axis is Bottom(0) to Top(max)
