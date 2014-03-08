@@ -1,7 +1,11 @@
-/*
- * Dependencies:
- * CCImage* CCSpriteToCCImage(CCSprite*);
- */
+#include "getCCSpriteAlphaAtPosition.h"
+#include "CCSpriteToCCImage.h"
+
+using cocos2d::CCPoint;
+using cocos2d::CCRect;
+using cocos2d::CCImage;
+using cocos2d::CCSprite;
+
 float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint position)
 {
     if (!sp) return 0.0f;
@@ -16,7 +20,7 @@ float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint positio
     if (!img || !img->hasAlpha())
         return 0.0f;
     
-    unsigned char *data = new unsigned char[img->getDataLen()*x];
+    unsigned char *data = new unsigned char[img->getDataLen()*4];
     data = img->getData();
     
     int i = (int)position.x;
@@ -28,6 +32,6 @@ float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint positio
     // [0][0] => Left-Top Pixel !
     // But cocos2d Location Y-axis is Bottom(0) to Top(max)
 
-    unsigned char *pixel = data + (i + (img->getHeight() - j) * img->getWidth()) * x;
+    unsigned char *pixel = data + (i + (img->getHeight() - j) * img->getWidth()) * 4;
     return *(pixel+3);
 }
