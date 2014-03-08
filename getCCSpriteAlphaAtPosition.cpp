@@ -1,3 +1,7 @@
+/*
+ * Dependencies:
+ * CCImage* CCSpriteToCCImage(CCSprite*);
+ */
 float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint position)
 {
     if (!sp) return 0.0f;
