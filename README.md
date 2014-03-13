@@ -4,3 +4,5 @@ extensions-for-cocos2dx-2.x
 * getCCSpriteAlphaAtPosition
 * CCStringMakeFrom
 * CCSpriteMakeFrom
+* Macros
+* Helpers
