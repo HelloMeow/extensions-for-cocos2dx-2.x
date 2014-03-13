@@ -129,7 +129,7 @@
 #define LOGPosition(o)      (o ? LOGCCPoint(o->getPosition()) : LOGString(""#o" is nullptr"))
 #define LOGSize(o)          (o ? LOGCCSize(o->getContentSize()) : LOGString(""#o" is nullptr"))
 #define LOGBasic(o)         {LOGAnchorPoint(o);LOGPosition(o);LOGSize(o);}
-
+#define WarnNotImplemented()    {DLog("NOT_IMPLEMENTED");}
 #pragma mark -
 /**
  *  CXASSERT: if cond not meet, log the cond for debugging.
