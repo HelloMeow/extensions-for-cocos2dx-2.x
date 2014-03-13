@@ -5,6 +5,6 @@ extensions-for-cocos2dx-2.x
 * CCStringMakeFrom
 * CCSpriteMakeFrom
 * Macros
-* Helpers
+* Helpers: commonly used helper methods.
 * UI Controls
-	* EXButton
+	* EXButton: replacement for CCMenu/CCMenuItem.
