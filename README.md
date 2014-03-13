@@ -6,3 +6,5 @@ extensions-for-cocos2dx-2.x
 * CCSpriteMakeFrom
 * Macros
 * Helpers
+* UI Controls
+	* EXButton
