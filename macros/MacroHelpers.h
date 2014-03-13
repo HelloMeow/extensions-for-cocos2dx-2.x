@@ -100,7 +100,7 @@
  *  DLog: only log when DEBUG is defined
  */
 #ifdef DEBUG
-#   define DLog(fmt, ...) CCLog(("[%s - %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#   define DLog(fmt, ...) cocos2d::CCLog(("[%s - %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
 #else
 #   define DLog(...)
 #endif

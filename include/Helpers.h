@@ -59,4 +59,10 @@ cocos2d::CCPoint positionRelativeToNodeAP(cocos2d::CCNode* obj,
 cocos2d::CCPoint positionAt(cocos2d::CCNode* obj,
                             const cocos2d::CCPoint& proportion);
 
+/**
+ *  create NodeRGBA with contentSize set.
+ */
+cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize);
+
+
 #endif /* defined(__Helpers__) */

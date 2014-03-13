@@ -12,7 +12,7 @@
 using cocos2d::CCString;
 using cocos2d::CCNode;
 using cocos2d::CCPoint;
-
+using cocos2d::CCNodeRGBA;
 
 const char* safeGetCString(CCString* var)
 {
@@ -41,7 +41,7 @@ CCPoint positionAt(CCNode* obj, const CCPoint& proportion)
 
 void addChildToCenter(CCNode *parent, CCNode *child)
 {
-    addChild(parent, child, AP_Center, AP_Center);
+    addChildRelativeToParent(parent, child, AP_Center, AP_Center);
 }
 
 void addChildRelativeToParent(CCNode*parent, CCNode *child,
@@ -69,4 +69,14 @@ void addChild(CCNode* parent, CCNode* child, CCPoint anchorPoint,
     child->ignoreAnchorPointForPosition(false);
     child->setAnchorPoint(anchorPoint);
     child->setPosition(position);
+}
+
+cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize)
+{
+    cocos2d::CCNodeRGBA* node = new CCNodeRGBA;
+    if (!node) return nullptr;
+    node->autorelease();
+    node->ignoreAnchorPointForPosition(false);
+    node->setContentSize(contentSize);
+    return node;
 }
