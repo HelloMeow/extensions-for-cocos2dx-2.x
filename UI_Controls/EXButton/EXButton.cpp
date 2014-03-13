@@ -8,7 +8,7 @@
 
 #include "EXButton.h"
 #include "Helpers.h"
-#include "EXButtonImpImage.h"
+#include "CCSpriteMakeFrom.h"
 #include "EXButtonImpNode.h"
 #include "EXButtonImpDecoratorLongPress.h"
 #include "EXButtonImpDecoratorSize.h"
@@ -56,17 +56,33 @@ EXButton* EXButton::createButtonWithImage(cocos2d::CCString* normal,
                                           cocos2d::CCString* selected,
                                           cocos2d::CCString* disabled)
 {
-    EXButtonImp* btnImp = EXButtonImpImage::create(safeGetCString(normal),
-                                                   safeGetCString(selected),
-                                                   safeGetCString(disabled));
-    return CREATE_EXBUTTON(btnImp);
+    return createButtonWithImage(safeGetCString(normal),
+                                 safeGetCString(selected),
+                                 safeGetCString(disabled));
 }
 
 EXButton* EXButton::createButtonWithImage(const char* normal,
                                           const char* selected,
                                           const char* disabled)
 {
-    EXButtonImp* btnImp = EXButtonImpImage::create(normal, selected, disabled);
+    CCSprite *normalSprite = nullptr,
+    *selectedSprite = nullptr,
+    *disabledSprite = nullptr;
+    
+    const char* failSafe = normal ? normal : selected ? selected : disabled;
+    
+    if (!normal) normal = failSafe;
+    normalSprite = spriteMakeFrom(normal);
+    
+    if (!selected) selected = failSafe;
+    selectedSprite = spriteMakeFrom(selected);
+    
+    if (!disabled) disabled = failSafe;
+    disabledSprite = spriteMakeFrom(disabledSprite);
+    
+    EXButtonImp* btnImp = EXButtonImpNode::create(normalSprite,
+                                                  selectedSprite,
+                                                  disabledSprite);
     return CREATE_EXBUTTON(btnImp);
 }
 
