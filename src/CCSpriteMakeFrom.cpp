@@ -43,8 +43,19 @@ CCSprite* spriteMakeFrom(CCString* imagePath)
 }
 CCSprite* spriteMakeFrom(const char* imagePath)
 {
-    if (!imagePath) return nullptr;
-    return CCSprite::create(imagePath);
+    using cocos2d::CCFileUtils;
+    
+    if (imagePath != NULL)
+    {
+        std::string fullPath = CCFileUtils::sharedFileUtils()->fullPathForFilename(imagePath);
+        
+        if( CCFileUtils::sharedFileUtils()->isFileExist(fullPath) )
+        {
+            return CCSprite::create(imagePath);
+        }
+    }
+    
+    return CCSprite::create("Icon.png");
 }
 CCSprite* spriteMakeFrom(ccColor3B color3, CCSize size)
 {
