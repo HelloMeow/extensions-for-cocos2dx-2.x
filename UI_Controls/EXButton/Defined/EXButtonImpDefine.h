@@ -1,13 +1,13 @@
 //
 //  EXButtonImpDefine.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-11.
+//  Created by HelloMeow on 14-3-11.
 //
 //
 
-#ifndef TetravexDesigner_EXButtonImpDefine_h
-#define TetravexDesigner_EXButtonImpDefine_h
+#ifndef _EXButtonImpDefine_h
+#define _EXButtonImpDefine_h
 
 #include "cocos2d.h"
 

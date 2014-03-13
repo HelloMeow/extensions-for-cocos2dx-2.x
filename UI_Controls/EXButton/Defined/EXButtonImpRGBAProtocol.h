@@ -1,13 +1,13 @@
 //
 //  EXButtonImpRGBAProtocol.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImpRGBAProtocol__
-#define __TetravexDesigner__EXButtonImpRGBAProtocol__
+#ifndef __EXButtonImpRGBAProtocol__
+#define __EXButtonImpRGBAProtocol__
 
 #include "cocos2d.h"
 #include "EXButtonImpDefine.h"
@@ -24,4 +24,4 @@ public:
 
 NSEXButtonImp_END
 
-#endif /* defined(__TetravexDesigner__EXButtonImpRGBA__) */
+#endif /* defined(__EXButtonImpRGBA__) */

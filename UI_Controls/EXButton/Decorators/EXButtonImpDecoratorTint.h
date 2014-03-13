@@ -1,13 +1,13 @@
 //
 //  EXButtonImpDecoratorTint.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImpDecoratorTint__
-#define __TetravexDesigner__EXButtonImpDecoratorTint__
+#ifndef __EXButtonImpDecoratorTint__
+#define __EXButtonImpDecoratorTint__
 
 #include "EXButtonImpDecorator.h"
 
@@ -23,4 +23,4 @@ public:
 
 NSEXButtonImp_END
 
-#endif /* defined(__TetravexDesigner__EXButtonImpDecoratorTint__) */
+#endif /* defined(__EXButtonImpDecoratorTint__) */

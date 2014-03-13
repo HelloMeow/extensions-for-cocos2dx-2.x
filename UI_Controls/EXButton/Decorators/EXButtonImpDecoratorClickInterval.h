@@ -1,13 +1,13 @@
 //
 //  EXButtonImpDecoratorClickInterval.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImpDecoratorClickInterval__
-#define __TetravexDesigner__EXButtonImpDecoratorClickInterval__
+#ifndef __EXButtonImpDecoratorClickInterval__
+#define __EXButtonImpDecoratorClickInterval__
 
 #include "EXButtonImpDecorator.h"
 
@@ -30,4 +30,4 @@ private:
 
 NSEXButtonImp_END
 
-#endif /* defined(__TetravexDesigner__EXButtonImpDecoratorClickInterval__) */
+#endif /* defined(__EXButtonImpDecoratorClickInterval__) */

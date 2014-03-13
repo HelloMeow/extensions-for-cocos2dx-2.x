@@ -1,13 +1,13 @@
 //
 //  EXButtonImp.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImp__
-#define __TetravexDesigner__EXButtonImp__
+#ifndef __EXButtonImp__
+#define __EXButtonImp__
 
 #include "cocos2d.h"
 #include "EXButtonImpRGBAProtocol.h"
@@ -44,4 +44,4 @@ private:
     std::function<void()> _lambda;
 };
 
-#endif /* defined(__TetravexDesigner__EXButtonImp__) */
+#endif /* defined(__EXButtonImp__) */

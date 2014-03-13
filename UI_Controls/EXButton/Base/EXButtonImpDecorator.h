@@ -1,13 +1,13 @@
 //
 //  EXButtonImpDecorator.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImpDecorator__
-#define __TetravexDesigner__EXButtonImpDecorator__
+#ifndef __EXButtonImpDecorator__
+#define __EXButtonImpDecorator__
 
 #include "EXButtonImp.h"
 
@@ -37,4 +37,4 @@ protected:
 
 NSEXButtonImp_END
 
-#endif /* defined(__TetravexDesigner__EXButtonImpDecorator__) */
+#endif /* defined(__EXButtonImpDecorator__) */

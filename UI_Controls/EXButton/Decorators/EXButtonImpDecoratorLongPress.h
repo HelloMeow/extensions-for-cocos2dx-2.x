@@ -1,13 +1,13 @@
 //
 //  EXButtonImpDecoratorLongPress.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButtonImpDecoratorLongPress__
-#define __TetravexDesigner__EXButtonImpDecoratorLongPress__
+#ifndef __EXButtonImpDecoratorLongPress__
+#define __EXButtonImpDecoratorLongPress__
 
 #include "EXButtonImpDecorator.h"
 
@@ -31,4 +31,4 @@ private:
 
 NSEXButtonImp_END
 
-#endif /* defined(__TetravexDesigner__EXButtonImpDecoratorLongPress__) */
+#endif /* defined(__EXButtonImpDecoratorLongPress__) */

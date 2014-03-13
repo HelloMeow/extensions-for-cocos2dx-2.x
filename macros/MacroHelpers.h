@@ -1,8 +1,8 @@
 //
 //  MacroHelpers.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-13.
+//  Created by HelloMeow on 14-3-13.
 //
 //
 

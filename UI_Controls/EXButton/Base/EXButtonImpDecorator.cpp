@@ -1,8 +1,8 @@
 //
 //  EXButtonImpDecorator.cpp
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 

@@ -1,13 +1,13 @@
 //
 //  CCStringMakeFrom.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-13.
+//  Created by HelloMeow on 14-3-13.
 //
 //
 
-#ifndef __TetravexDesigner__CCStringMakeFrom__
-#define __TetravexDesigner__CCStringMakeFrom__
+#ifndef __CCStringMakeFrom__
+#define __CCStringMakeFrom__
 
 #include "cocos2d.h"
 
@@ -18,4 +18,4 @@ cocos2d::CCString* CCStringMakeFrom(const char* var);
 cocos2d::CCString* CCStringMakeFrom(cocos2d::CCSize var);
 cocos2d::CCString* CCStringMakeFrom(cocos2d::CCPoint var);
 
-#endif /* defined(__TetravexDesigner__CCStringMakeFrom__) */
+#endif /* defined(__CCStringMakeFrom__) */

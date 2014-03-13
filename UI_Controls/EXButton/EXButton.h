@@ -1,18 +1,13 @@
 //
 //  EXButtonImp.h
-//  TetravexDesigner
+// 
 //
-//  Created by jiuzhang tech on 14-3-10.
+//  Created by HelloMeow on 14-3-10.
 //
 //
 
-#ifndef __TetravexDesigner__EXButton__
-#define __TetravexDesigner__EXButton__
-
-/**
- *  safeGetCString
- *  addCenterChild
- */
+#ifndef __EXButton__
+#define __EXButton__
 
 #include "cocos2d.h"
 
@@ -86,4 +81,4 @@ private:
     EXButtonImp* _buttonImp;
 };
 
-#endif /* defined(__TetravexDesigner__EXButtonImp__) */
+#endif /* defined(__EXButtonImp__) */
