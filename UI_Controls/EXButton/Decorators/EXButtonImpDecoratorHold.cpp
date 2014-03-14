@@ -10,7 +10,6 @@
 
 NSEXButtonImp_BEGIN
 using namespace cocos2d;
-// TODO: 支持传入长按门槛时间
 
 EXButtonImp* EXButtonImpDecoratorHold::create(EXButtonImp *button, float timeThreshold)
 {
@@ -34,6 +33,8 @@ bool EXButtonImpDecoratorHold::init(EXButtonImp* button, float timeThreshold)
         
         _holdDetected = false;
         
+        _touchCancelled = false;
+        
         return true;
         
     } while (0);
@@ -46,12 +47,21 @@ bool EXButtonImpDecoratorHold::ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CC
     if (EXButtonImpDecorator::ccTouchBegan(touch, event))
     {
         _holdDetected = false;
+        _touchCancelled = false;
         schedule(SEL_SCHEDULE(&EXButtonImpDecoratorHold::holdDetected),
                  _timeThreshold, 1, 0);
         return true;
     }
     
     return false;
+}
+void EXButtonImpDecoratorHold::ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event)
+{
+    if (!swallowTouch(touch))
+    {
+        _touchCancelled = true;
+        unschedule(SEL_SCHEDULE(&EXButtonImpDecoratorHold::holdDetected));
+    }
 }
 void EXButtonImpDecoratorHold::ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event)
 {
@@ -72,7 +82,8 @@ void EXButtonImpDecoratorHold::ccTouchCancelled(cocos2d::CCTouch *touch, cocos2d
 
 void EXButtonImpDecoratorHold::holdDetected()
 {
-    CCLog("Hold gesture recognized");
+    if (_touchCancelled) return;
+    
     unschedule(SEL_SCHEDULE(&EXButtonImpDecoratorHold::holdDetected));
     _holdDetected = true;
     EXButtonImp::activate();

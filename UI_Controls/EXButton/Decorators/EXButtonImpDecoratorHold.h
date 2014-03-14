@@ -22,6 +22,7 @@ protected:
     using EXButtonImpDecorator::init;
     virtual bool init(EXButtonImp* button, float timeThreshold);
     virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
+    virtual void ccTouchMoved(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
     virtual void ccTouchEnded(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);
     virtual void ccTouchCancelled(cocos2d::CCTouch *touch, cocos2d::CCEvent* event);
     void holdDetected();
@@ -29,6 +30,7 @@ protected:
 private:
     float _timeThreshold;
     bool _holdDetected;
+    bool _touchCancelled;
 };
 
 NSEXButtonImp_END
