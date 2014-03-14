@@ -134,6 +134,17 @@ public:
      */
     static EXButton* createToggledButtons(cocos2d::CCArray* buttons);
     
+    /**
+     *  create 'hold' gesture recognization.
+     *
+     *  @param button             EXButton*
+     *  @param holdTimeThreshould if holding time >= holdTimeThreshould,
+     *  wrapper button's lambda will be called; if holding time < holdTimeThreshould,
+     *  wrapped button's lambda will be called; if cancelled, nothing happened.
+     *
+     *
+     *  @return a new EXButton* that will recognize hold gesture.
+     */
     static EXButton* createHoldGestureCheckedButton(EXButton* button,
                                                     float holdTimeThreshould);
     
