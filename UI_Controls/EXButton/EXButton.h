@@ -134,6 +134,9 @@ public:
      */
     static EXButton* createToggledButtons(cocos2d::CCArray* buttons);
     
+    static EXButton* createHoldGestureCheckedButton(EXButton* button,
+                                                    float holdTimeThreshould);
+    
 public:
     
     /**
@@ -150,6 +153,12 @@ public:
      *  Set callback lambda when pressed.
      */
     void setLambda(std::function<void()> lambda);
+    
+    /**
+     *  Simulate CCLayer behaviors
+     */
+    virtual bool isTouchEnabled();
+    virtual void setTouchEnabled(bool value);
     
 private:
     using CCLayer::init;

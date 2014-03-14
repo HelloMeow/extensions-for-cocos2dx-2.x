@@ -15,7 +15,7 @@
 #include "EXButtonImpDecoratorTint.h"
 #include "EXButtonImpDecoratorToggle.h"
 #include "EXButtonImpDecoratorClickInterval.h"
-
+#include "EXButtonImpDecoratorHold.h"
 USING_NSEXButtonImp;
 
 using namespace cocos2d;
@@ -161,6 +161,14 @@ EXButton* EXButton::createToggledButtons(cocos2d::CCArray *buttons)
     return CREATE_EXBUTTON(btnImp);
 }
 
+EXButton* EXButton::createHoldGestureCheckedButton(EXButton *button,
+                                                   float holdTimeThreshould)
+{
+    if (!button) return nullptr;
+    EXButtonImp* btnImp = EXButtonImpDecoratorHold::create(button->_buttonImp, holdTimeThreshould);
+    return CREATE_EXBUTTON(btnImp);
+}
+
 #pragma mark - properties
 
 void EXButton::setEnabled(bool enabled)
@@ -176,6 +184,15 @@ bool EXButton::getEnabled()
 void EXButton::setLambda(std::function<void ()> lambda)
 {
     _buttonImp->setLambda(lambda);
+}
+
+bool EXButton::isTouchEnabled()
+{
+    return _buttonImp->isTouchEnabled();
+}
+void EXButton::setTouchEnabled(bool value)
+{
+    _buttonImp->setTouchEnabled(value);
 }
 
 #undef CREATE_EXBUTTON
