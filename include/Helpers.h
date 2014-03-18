@@ -64,5 +64,17 @@ cocos2d::CCPoint positionAt(cocos2d::CCNode* obj,
  */
 cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize);
 
+/**
+ *  create sprite with pattern image
+ */
+cocos2d::CCSprite* spriteWithPatternImage(const char* image,
+                                          cocos2d::CCSize finalSize);
+
+/**
+ *  create sprite with pattern sprite
+ */
+cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sprite,
+                                           cocos2d::CCSize finalSize);
+
 
 #endif /* defined(__Helpers__) */

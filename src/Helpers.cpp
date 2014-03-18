@@ -80,3 +80,47 @@ cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize)
     node->setContentSize(contentSize);
     return node;
 }
+
+cocos2d::CCSprite* spriteWithPatternImage(const char* image,
+                                          cocos2d::CCSize finalSize)
+{
+    if (!image) return nullptr;
+    
+    return spriteWithPatternSprite(cocos2d::CCSprite::create(image), finalSize);
+}
+
+cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sp,
+                                           cocos2d::CCSize finalSize)
+{
+    if (!sp) return nullptr;
+    
+    cocos2d::CCRenderTexture* rt = cocos2d::CCRenderTexture::create(finalSize.width,
+                                                                    finalSize.height);
+    
+    int cols = (int)(finalSize.width / sp->getContentSize().width) + 1;
+    int rows = (int)(finalSize.height / sp->getContentSize().height) + 1;
+    
+    rt->begin();
+    
+    float x = 0;
+    float y = 0;
+    for (int i=0; i<rows; i++)
+    {
+        x = 0;
+        for (int j=0; j<cols; j++)
+        {
+            cocos2d::CCSprite* spPlaced = cocos2d::CCSprite::createWithTexture(sp->getTexture());
+            spPlaced->setPosition(ccpAdd(ccp(sp->getContentSize().width/2,
+                                             sp->getContentSize().height/2),
+                                         ccp(x, y)));
+            x += sp->getContentSize().width;
+            spPlaced->setFlipY(true);
+            spPlaced->visit();
+        }
+        y += sp->getContentSize().height;
+    }
+    
+    rt->end();
+    
+    return cocos2d::CCSprite::createWithTexture(rt->getSprite()->getTexture());
+}
