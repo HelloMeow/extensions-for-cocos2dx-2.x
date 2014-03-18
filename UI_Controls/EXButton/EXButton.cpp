@@ -78,7 +78,7 @@ EXButton* EXButton::createButtonWithImage(const char* normal,
     selectedSprite = spriteMakeFrom(selected);
     
     if (!disabled) disabled = failSafe;
-    disabledSprite = spriteMakeFrom(disabledSprite);
+    disabledSprite = spriteMakeFrom(disabled);
     
     EXButtonImp* btnImp = EXButtonImpNode::create(normalSprite,
                                                   selectedSprite,
