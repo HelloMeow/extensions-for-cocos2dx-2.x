@@ -19,8 +19,7 @@ float getCCSpriteAlphaAtPosition(cocos2d::CCSprite *sp, cocos2d::CCPoint positio
     if (!img || !img->hasAlpha())
         return .0f;
     
-    unsigned char *data = new unsigned char[img->getDataLen()*4];
-    data = img->getData();
+    unsigned char *data = img->getData();
     
     int i = (int)position.x;
     int j = (int)position.y;
