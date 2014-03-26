@@ -243,6 +243,10 @@ virtual CC_PROPERTY_GETTER(varType, varName, funName)
 #define CC_PROPERTY_VIRTUAL_SETTER(varType, varName, funName) \
 virtual CC_PROPERTY_SETTER(varType, varName, funName)
 
+#define CC_PROPERTY_GS(varType, varName, funName) \
+CC_PROPERTY_GETTER(varType, varName, funName);\
+CC_PROPERTY_SETTER(varType, varName, funName);
+
 #pragma mark - property setter and getter definition
 /**
  *  define property setter(retain and assign) and getter
