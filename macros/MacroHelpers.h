@@ -144,7 +144,7 @@
 /**
  *  CX_BREAK_IF: if cond meets, log the cond for debugging
  */
-#define CX_BREAK_IF(cond) if (cond) {LOGDEBUG("BREAK:"#cond); break;}
+#define CX_BREAK_IF(cond) if (cond) {LOGDEBUG("f[%s]BREAK:"#cond, __func__); break;}
 
 #pragma mark -
 /**
