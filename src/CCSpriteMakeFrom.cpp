@@ -29,13 +29,34 @@ CCSprite* spriteMakeFrom(CCNode* var)
     var->ignoreAnchorPointForPosition(false);
     var->setAnchorPoint(ccp(0.5, 0.5));
     var->setPosition(size.width/2, size.height/2);
-    
     var->visit();
 
     rt->end();
     
+    return spriteMakeFromRender(rt->getSprite());
+}
+
+cocos2d::CCSprite* spriteMakeFromRender(cocos2d::CCSprite* var)
+{
+    if (!var) return nullptr;
+    
+    CCSize size = var->getContentSize();
+    
+    CCRenderTexture* rt = CCRenderTexture::create(size.width, size.height);
+    
+    rt->begin();
+    
+    var->ignoreAnchorPointForPosition(false);
+    var->setAnchorPoint(ccp(0.5, 0.5));
+    var->setPosition(ccp(size.width/2, size.height/2));
+    var->setFlipY(true);
+    var->visit();
+    
+    rt->end();
+    
     return spriteMakeFrom(rt->getSprite());
 }
+
 CCSprite* spriteMakeFrom(CCSprite* var)
 {
     if (!var) return nullptr;
@@ -98,7 +119,7 @@ cocos2d::CCSprite* spriteMakeFrom(const char* imagePath, cocos2d::CCSize size)
                                             1,
                                             1));
             s->setContentSize(finalSize);
-            return spriteMakeFrom(s);
+            return spriteMakeFrom((CCNode*)s);
         }
 
     }
