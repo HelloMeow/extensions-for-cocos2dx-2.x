@@ -45,7 +45,8 @@ void addChildRelativeToNode(cocos2d::CCNode*parent,
                             cocos2d::CCNode *child,
                             cocos2d::CCPoint childAnchorPoint,
                             cocos2d::CCNode* node,
-                            cocos2d::CCPoint relativeAnchorPoint);
+                            cocos2d::CCPoint relativeAnchorPoint,
+                            cocos2d::CCPoint extraPosition = cocos2d::CCPointZero);
 
 /**
  *  get the screen position of node at the anchorPoint.

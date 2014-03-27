@@ -48,16 +48,18 @@ void addChildRelativeToParent(CCNode*parent, CCNode *child,
                               CCPoint childAnchorPoint,
                               CCPoint relativeAnchorPoint)
 {
-    addChildRelativeToNode(parent, child, childAnchorPoint,
-                           parent, relativeAnchorPoint);
+    addChild(parent, child, childAnchorPoint,
+             positionAt(parent, relativeAnchorPoint));
 }
 
 void addChildRelativeToNode(CCNode*parent, CCNode *child,
                             CCPoint childAnchorPoint, CCNode* node,
-                            CCPoint relativeAnchorPoint)
+                            CCPoint relativeAnchorPoint,
+                            CCPoint extraPosition)
 {
     addChild(parent, child, childAnchorPoint,
-             positionAt(node, relativeAnchorPoint));
+             cocos2d::ccpAdd(positionRelativeToNodeAP(node, relativeAnchorPoint),
+                             extraPosition));
 }
 
 void addChild(CCNode* parent, CCNode* child, CCPoint anchorPoint,
