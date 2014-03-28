@@ -16,6 +16,8 @@
 
 #pragma mark
 
+#define TO_STRING(x)    #x
+
 /**
  *  random color3B
  */
