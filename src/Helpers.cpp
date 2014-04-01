@@ -83,6 +83,20 @@ cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize)
     return node;
 }
 
+CCNode* emptyNode(cocos2d::CCSize contentSize)
+{
+    cocos2d::CCNode* n = cocos2d::CCNode::create();
+    n->setContentSize(contentSize);
+    return n;
+}
+
+cocos2d::CCNode* colorNode(cocos2d::CCSize contentSize, cocos2d::ccColor4B color4B)
+{
+    cocos2d::CCNode* node = emptyNode(contentSize);
+    node->setBackgroundColor(color4B);
+    return node;
+}
+
 cocos2d::CCSprite* spriteWithPatternImage(const char* image,
                                           cocos2d::CCSize finalSize)
 {

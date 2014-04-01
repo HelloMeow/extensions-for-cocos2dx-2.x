@@ -65,6 +65,10 @@ cocos2d::CCPoint positionAt(cocos2d::CCNode* obj,
  */
 cocos2d::CCNodeRGBA* createRGBANode(cocos2d::CCSize contentSize);
 
+cocos2d::CCNode* emptyNode(cocos2d::CCSize contentSize);
+
+cocos2d::CCNode* colorNode(cocos2d::CCSize contentSize, cocos2d::ccColor4B color4B);
+
 /**
  *  create sprite with pattern image
  */
