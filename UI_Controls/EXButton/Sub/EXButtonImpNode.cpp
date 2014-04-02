@@ -59,10 +59,10 @@ bool EXButtonImpNode::init(cocos2d::CCNode* normal,
         
         setContentSize(contentSize); // max size of 3 children nodes
         
-        // MUST addChild after setContentSize 
-        addChildToCenter(this, _normalNode);
+        // MUST addChild after setContentSize
         if (_selectedNode) addChildToCenter(this, _selectedNode);
         if (_disabledNode) addChildToCenter(this, _disabledNode);
+        addChildToCenter(this, _normalNode);
         
         return true;
         

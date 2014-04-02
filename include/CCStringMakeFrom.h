@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 
 cocos2d::CCString* CCStringMakeFrom(int var);
+cocos2d::CCString* CCStringMakeFrom(int64_t var);
 cocos2d::CCString* CCStringMakeFrom(bool var);
 cocos2d::CCString* CCStringMakeFrom(double var);
 cocos2d::CCString* CCStringMakeFrom(const char* var);

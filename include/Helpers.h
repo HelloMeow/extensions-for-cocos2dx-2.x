@@ -36,7 +36,8 @@ void addChild(cocos2d::CCNode* parent,
 void addChildRelativeToParent(cocos2d::CCNode*parent,
                               cocos2d::CCNode *child,
                               cocos2d::CCPoint childAnchorPoint,
-                              cocos2d::CCPoint relativeAnchorPoint);
+                              cocos2d::CCPoint relativeAnchorPoint,
+                              cocos2d::CCPoint extraPosition = cocos2d::CCPointZero);
 
 /**
  *  add child to parent, and place it at the position at the position of node at relativeAnchorPoint

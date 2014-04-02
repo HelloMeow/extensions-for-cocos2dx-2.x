@@ -46,10 +46,11 @@ void addChildToCenter(CCNode *parent, CCNode *child)
 
 void addChildRelativeToParent(CCNode*parent, CCNode *child,
                               CCPoint childAnchorPoint,
-                              CCPoint relativeAnchorPoint)
+                              CCPoint relativeAnchorPoint,
+                              CCPoint extraPosition)
 {
     addChild(parent, child, childAnchorPoint,
-             positionAt(parent, relativeAnchorPoint));
+             cocos2d::ccpAdd(positionAt(parent, relativeAnchorPoint), extraPosition));
 }
 
 void addChildRelativeToNode(CCNode*parent, CCNode *child,

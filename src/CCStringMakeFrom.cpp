@@ -27,6 +27,11 @@ CCString* CCStringMakeFrom(int var)
     return CCString::createWithFormat("%d", var);
 }
 
+cocos2d::CCString* CCStringMakeFrom(int64_t var)
+{
+    return CCString::createWithFormat("%lld", var);
+}
+
 CCString* CCStringMakeFrom(bool var)
 {
     return CCString::createWithFormat("%s", var ? "true" : "false");
