@@ -107,34 +107,35 @@ cocos2d::CCSprite* spriteWithPatternImage(const char* image,
 }
 
 cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sp,
-                                           cocos2d::CCSize finalSize)
+                                           cocos2d::CCSize finalSize,
+                                           float margin,
+                                           float padding)
 {
     if (!sp) return nullptr;
     
     cocos2d::CCRenderTexture* rt = cocos2d::CCRenderTexture::create(finalSize.width,
                                                                     finalSize.height);
     
-    int cols = (int)(finalSize.width / sp->getContentSize().width) + 1;
-    int rows = (int)(finalSize.height / sp->getContentSize().height) + 1;
+    int cols = (int)((finalSize.width - 2*margin) / (sp->getContentSize().width + padding)) + 1;
+    int rows = (int)((finalSize.height - 2*margin) / (sp->getContentSize().height + padding)) + 1;
     
     rt->begin();
     
     float x = 0;
-    float y = 0;
+    float y = margin;
     for (int i=0; i<rows; i++)
     {
-        x = 0;
-        for (int j=0; j<cols; j++)
+        x = margin;        for (int j=0; j<cols; j++)
         {
             cocos2d::CCSprite* spPlaced = cocos2d::CCSprite::createWithTexture(sp->getTexture());
-            spPlaced->setPosition(ccpAdd(ccp(sp->getContentSize().width/2,
-                                             sp->getContentSize().height/2),
+            spPlaced->setPosition(ccpAdd(ccp(sp->boundingBox().size.width/2,
+                                             sp->boundingBox().size.height/2),
                                          ccp(x, y)));
-            x += sp->getContentSize().width;
+            x += sp->boundingBox().size.width + padding;
             spPlaced->setFlipY(true);
             spPlaced->visit();
         }
-        y += sp->getContentSize().height;
+        y += sp->getContentSize().height + padding;
     }
     
     rt->end();

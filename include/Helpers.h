@@ -80,7 +80,9 @@ cocos2d::CCSprite* spriteWithPatternImage(const char* image,
  *  create sprite with pattern sprite
  */
 cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sprite,
-                                           cocos2d::CCSize finalSize);
+                                           cocos2d::CCSize finalSize,
+                                           float margin = 0,
+                                           float padding = 0);
 
 
 #endif /* defined(__Helpers__) */
