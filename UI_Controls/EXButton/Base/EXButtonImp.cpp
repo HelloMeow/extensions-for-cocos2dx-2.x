@@ -17,7 +17,7 @@ using namespace cocos2d;
 bool EXButtonImp::init()
 {
     do {
-        CC_BREAK_IF(!CCLayer::init());
+        CC_BREAK_IF(!CCLayerRGBA::init());
         
         ignoreAnchorPointForPosition(false);
         

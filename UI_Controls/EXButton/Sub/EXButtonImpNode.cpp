@@ -9,6 +9,7 @@
 #include "EXButtonImpNode.h"
 #include "MacroHelpers.h"
 #include "Helpers.h"
+#include "CCSpriteMakeFrom.h"
 NSEXButtonImp_BEGIN
 using namespace cocos2d;
 EXButtonImpNode* EXButtonImpNode::create(cocos2d::CCNode* normal,
@@ -48,12 +49,22 @@ bool EXButtonImpNode::init(cocos2d::CCNode* normal,
             _selectedNode = selected;
             contentSize = CCSizeMax(contentSize, _selectedNode->getContentSize());
         }
+        else
+        {
+            _selectedNode = spriteMakeFrom(_normalNode);
+            contentSize = CCSizeMax(contentSize, _selectedNode->getContentSize());
+        }
         
         if (disabled &&
             disabled != _normalNode &&
             (!_selectedNode || disabled != _selectedNode))
         {
             _disabledNode = disabled;
+            contentSize = CCSizeMax(contentSize, _disabledNode->getContentSize());
+        }
+        else
+        {
+            _disabledNode = spriteMakeFrom(_normalNode);
             contentSize = CCSizeMax(contentSize, _disabledNode->getContentSize());
         }
         
@@ -100,7 +111,42 @@ void EXButtonImpNode::switchState()
             break;
     }
 }
-void EXButtonImpNode::setColor(cocos2d::ccColor3B& color,
+
+void EXButtonImpNode::setOpacity(GLubyte opacity)
+{
+    CCLayerRGBA::setOpacity(opacity);
+    
+    CCRGBAProtocol* castNode = nullptr;
+    if (_normalNode)
+    {
+        castNode = dynamic_cast<CCRGBAProtocol*>(_normalNode);
+        if (castNode)
+        {
+            castNode->setCascadeOpacityEnabled(isCascadeOpacityEnabled());
+            castNode->setOpacity(opacity);
+        }
+    }
+    if (_selectedNode)
+    {
+        castNode = dynamic_cast<CCRGBAProtocol*>(_selectedNode);
+        if (castNode)
+        {
+            castNode->setCascadeOpacityEnabled(isCascadeOpacityEnabled());
+            castNode->setOpacity(opacity);
+        }
+    }
+    if (_disabledNode)
+    {
+        castNode = dynamic_cast<CCRGBAProtocol*>(_disabledNode);
+        if (castNode)
+        {
+            castNode->setCascadeOpacityEnabled(isCascadeOpacityEnabled());
+            castNode->setOpacity(opacity);
+        }
+    }
+}
+
+void EXButtonImpNode::setTintColor(cocos2d::ccColor3B& color,
                              NameSpaceEXButtonImp::State state)
 {
     CCRGBAProtocol* castNode = nullptr;

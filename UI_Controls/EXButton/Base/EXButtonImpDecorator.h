@@ -24,7 +24,8 @@ protected:
     void setButton(EXButtonImp* button);
     virtual void setState(State newState);
     virtual void setEnabled(bool enabled);
-    virtual void setColor(cocos2d::ccColor3B& color, NameSpaceEXButtonImp::State state);
+    virtual void setTintColor(cocos2d::ccColor3B& color,
+                              NameSpaceEXButtonImp::State state);
     using EXButtonImp::init;
     virtual bool init(EXButtonImp* button);
     virtual bool ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event);

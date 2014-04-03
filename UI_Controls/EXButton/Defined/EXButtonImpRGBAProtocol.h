@@ -17,7 +17,8 @@ NSEXButtonImp_BEGIN
 class EXButtonImpRGBAProtocol
 {
 public:
-    virtual void setColor(cocos2d::ccColor3B& color, NameSpaceEXButtonImp::State state);
+    virtual void setTintColor(cocos2d::ccColor3B& color,
+                              NameSpaceEXButtonImp::State state);
     
     virtual ~EXButtonImpRGBAProtocol();
 };

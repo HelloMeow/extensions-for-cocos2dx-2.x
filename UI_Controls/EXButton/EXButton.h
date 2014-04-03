@@ -32,7 +32,7 @@
 
 class EXButtonImp;
 class EXButton
-: public cocos2d::CCLayer
+: public cocos2d::CCLayerRGBA
 {
 public:
     
@@ -170,13 +170,17 @@ public:
      */
     virtual bool isTouchEnabled();
     virtual void setTouchEnabled(bool value);
-    
+    virtual bool isOpacityModifyRGB();
+    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB);
+    virtual void setOpacity(GLubyte opacity);
 private:
-    using CCLayer::init;
+//    using CCLayer::init;
     bool init(EXButtonImp* buttonImp);
     EXButton();
     ~EXButton();
     EXButtonImp* _buttonImp;
+    //CCRGBAProtocol
+    bool m_bIsOpacityModifyRGB;
 };
 
 #endif /* defined(__EXButtonImp__) */

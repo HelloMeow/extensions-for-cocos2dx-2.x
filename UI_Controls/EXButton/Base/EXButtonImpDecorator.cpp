@@ -80,9 +80,9 @@ void EXButtonImpDecorator::setEnabled(bool enabled)
     EXButtonImp::setEnabled(enabled);
 }
 
-void EXButtonImpDecorator::setColor(cocos2d::ccColor3B &color, NameSpaceEXButtonImp::State state)
+void EXButtonImpDecorator::setTintColor(cocos2d::ccColor3B &color, NameSpaceEXButtonImp::State state)
 {
-    _button->setColor(color, state);
+    _button->setTintColor(color, state);
 }
 
 bool EXButtonImpDecorator::ccTouchBegan(cocos2d::CCTouch* touch, cocos2d::CCEvent* event)

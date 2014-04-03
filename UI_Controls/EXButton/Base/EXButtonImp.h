@@ -13,7 +13,7 @@
 #include "EXButtonImpRGBAProtocol.h"
 #include "EXButtonImpDefine.h"
 class EXButtonImp
-: public cocos2d::CCLayer
+: public cocos2d::CCLayerRGBA
 , public NameSpaceEXButtonImp::EXButtonImpRGBAProtocol
 {
 public:

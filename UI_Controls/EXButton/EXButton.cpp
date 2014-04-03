@@ -32,11 +32,14 @@ using namespace cocos2d;
 EXButton::EXButton()
 {
     _buttonImp = nullptr;
+    m_bIsOpacityModifyRGB = false;
 }
 
 bool EXButton::init(EXButtonImp *buttonImp)
 {
     if (!buttonImp) return false;
+    
+    if (!CCLayerRGBA::init()) return false;
     
     _buttonImp = buttonImp;
     CC_SAFE_RETAIN(_buttonImp);
@@ -194,5 +197,27 @@ void EXButton::setTouchEnabled(bool value)
 {
     _buttonImp->setTouchEnabled(value);
 }
-
+void EXButton::setOpacityModifyRGB(bool bOpacityModifyRGB)
+{
+    m_bIsOpacityModifyRGB=bOpacityModifyRGB;
+    CCObject* child;
+    CCArray* children=getChildren();
+    CCARRAY_FOREACH(children, child)
+    {
+        CCRGBAProtocol* pNode = dynamic_cast<CCRGBAProtocol*>(child);
+        if (pNode)
+        {
+            pNode->setOpacityModifyRGB(bOpacityModifyRGB);
+        }
+    }
+}
+void EXButton::setOpacity(GLubyte opacity)
+{
+    CCLayerRGBA::setOpacity(opacity);
+    _buttonImp->setOpacity(opacity);
+}
+bool EXButton::isOpacityModifyRGB()
+{
+    return m_bIsOpacityModifyRGB;
+}
 #undef CREATE_EXBUTTON

@@ -11,8 +11,8 @@
 
 NSEXButtonImp_BEGIN
 
-void EXButtonImpRGBAProtocol::setColor(cocos2d::ccColor3B& color,
-                                    NameSpaceEXButtonImp::State state)
+void EXButtonImpRGBAProtocol::setTintColor(cocos2d::ccColor3B& color,
+                                           NameSpaceEXButtonImp::State state)
 {
     WarnNotImplemented();
 }

@@ -26,8 +26,9 @@ protected:
                       cocos2d::CCNode* disabled);
 
     virtual void switchState();
-    virtual void setColor(cocos2d::ccColor3B& color,
-                          NameSpaceEXButtonImp::State state);
+    virtual void setTintColor(cocos2d::ccColor3B& color,
+                              NameSpaceEXButtonImp::State state);
+    virtual void setOpacity(GLubyte opacity);
 private:
     cocos2d::CCNode* _normalNode, *_selectedNode, *_disabledNode;
 };

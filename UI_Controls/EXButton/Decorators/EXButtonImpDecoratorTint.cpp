@@ -18,8 +18,8 @@ EXButtonImp* EXButtonImpDecoratorTint::create(EXButtonImp *button,
     EXButtonImpDecoratorTint* btn = new EXButtonImpDecoratorTint;
     if (btn && btn->init(button))
     {
-        btn->setColor(selectedTintedColor, Selected);
-        btn->setColor(disabledTintedColor, Disabled);
+        btn->setTintColor(selectedTintedColor, Selected);
+        btn->setTintColor(disabledTintedColor, Disabled);
         
         btn->autorelease();
         return btn;
