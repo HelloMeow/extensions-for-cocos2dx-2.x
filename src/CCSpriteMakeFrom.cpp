@@ -20,7 +20,7 @@ CCSprite* spriteMakeFrom(CCNode* var)
 {
     if (!var) return nullptr;
     
-    CCSize size = var->getContentSize();
+    CCSize size = var->boundingBox().size;
     
     CCRenderTexture* rt = CCRenderTexture::create(size.width, size.height);
     
