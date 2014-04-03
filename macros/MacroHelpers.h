@@ -305,7 +305,8 @@ void className::set##funName(varType var) {\
 #define AP_TopRight         ccp(1,   1)
 
 
-
 #pragma mark -
+
+#define CASE_TO_STR_RETURN(_var_)  case _var_: return #_var_;
 
 #endif
