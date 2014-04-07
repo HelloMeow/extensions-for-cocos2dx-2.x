@@ -99,11 +99,14 @@ cocos2d::CCNode* colorNode(cocos2d::CCSize contentSize, cocos2d::ccColor4B color
 }
 
 cocos2d::CCSprite* spriteWithPatternImage(const char* image,
-                                          cocos2d::CCSize finalSize)
+                                          cocos2d::CCSize finalSize,
+                                          float margin,
+                                          float padding)
 {
     if (!image) return nullptr;
     
-    return spriteWithPatternSprite(cocos2d::CCSprite::create(image), finalSize);
+    return spriteWithPatternSprite(cocos2d::CCSprite::create(image), finalSize,
+                                   margin, padding);
 }
 
 cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sp,
@@ -116,8 +119,10 @@ cocos2d::CCSprite* spriteWithPatternSprite(cocos2d::CCSprite* sp,
     cocos2d::CCRenderTexture* rt = cocos2d::CCRenderTexture::create(finalSize.width,
                                                                     finalSize.height);
     
-    int cols = (int)((finalSize.width - 2*margin) / (sp->getContentSize().width + padding)) + 1;
-    int rows = (int)((finalSize.height - 2*margin) / (sp->getContentSize().height + padding)) + 1;
+    int extraCol = fmod(finalSize.width - 2*margin, sp->getContentSize().width + padding) == 0 ? 0 : 1;
+    int extraRow = fmod(finalSize.height - 2*margin, sp->getContentSize().height + padding) == 0 ? 0 : 1;
+    int cols = (int)((finalSize.width - 2*margin) / (sp->getContentSize().width + padding)) + extraCol;
+    int rows = (int)((finalSize.height - 2*margin) / (sp->getContentSize().height + padding)) + extraRow;
     
     rt->begin();
     

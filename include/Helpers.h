@@ -74,7 +74,9 @@ cocos2d::CCNode* colorNode(cocos2d::CCSize contentSize, cocos2d::ccColor4B color
  *  create sprite with pattern image
  */
 cocos2d::CCSprite* spriteWithPatternImage(const char* image,
-                                          cocos2d::CCSize finalSize);
+                                          cocos2d::CCSize finalSize,
+                                          float margin = 0,
+                                          float padding = 0);
 
 /**
  *  create sprite with pattern sprite

@@ -104,5 +104,22 @@ void EXButtonImpDecorator::ccTouchCancelled(cocos2d::CCTouch *touch, cocos2d::CC
     _button->ccTouchCancelled(touch, event);
     EXButtonImp::ccTouchCancelled(touch, event);
 }
-
+void EXButtonImpDecorator::setOpacityModifyRGB(bool bOpacityModifyRGB)
+{
+    CCObject* child;
+    cocos2d::CCArray* children=getChildren();
+    CCARRAY_FOREACH(children, child)
+    {
+        CCRGBAProtocol* pNode = dynamic_cast<CCRGBAProtocol*>(child);
+        if (pNode)
+        {
+            pNode->setOpacityModifyRGB(bOpacityModifyRGB);
+        }
+    }
+}
+void EXButtonImpDecorator::setOpacity(GLubyte opacity)
+{
+    EXButtonImp::setOpacity(opacity);
+    _button->setOpacity(opacity);
+}
 NSEXButtonImp_END

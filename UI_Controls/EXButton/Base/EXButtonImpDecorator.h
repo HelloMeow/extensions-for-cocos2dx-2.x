@@ -34,6 +34,8 @@ protected:
     virtual void ccTouchCancelled(cocos2d::CCTouch *touch, cocos2d::CCEvent* event);
     virtual void switchState();
     EXButtonImp* _button;
+    virtual void setOpacityModifyRGB(bool bOpacityModifyRGB);
+    virtual void setOpacity(GLubyte opacity);
 };
 
 NSEXButtonImp_END
